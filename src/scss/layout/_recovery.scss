@@ -1,0 +1,25 @@
+@use 'base/mixins' as m;
+
+.recovery {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 4em;
+
+  @include m.desktop {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .image {
+    a {
+      bottom: 0;
+      left: 10em;
+    }
+  }
+
+  .contenido {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 2em;
+  }
+}

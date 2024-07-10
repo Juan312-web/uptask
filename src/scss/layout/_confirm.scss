@@ -1,0 +1,19 @@
+@use 'base/mixins' as m;
+
+.confir {
+  display: grid;
+  gap: 4em;
+  grid-template-columns: 1fr;
+
+  @include m.desktop {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .contenido {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+
+}

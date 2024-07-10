@@ -1,0 +1,53 @@
+@use 'base/variables' as v;
+@use 'base/mixins' as m;
+
+.contenedor-alertas {
+  position: absolute;
+  right: 0;
+  top: 4em;
+
+  @include m.tablet {
+    bottom: 0;
+    top: inherit;
+  }
+
+  padding: 2em 0;
+}
+
+.alerta {
+  width: 100%;
+  text-align: left;
+  padding: 1em;
+  margin: .2em;
+  font-weight: v.$bold;
+  text-transform: uppercase;
+  animation: hideNotification 2s forwards 3s;
+
+  &.error {
+    background-color: v.$text-500;
+    color: v.$text-100;
+    border-left: .5em solid v.$text-50;
+  }
+
+  &.exito {
+    background-color: v.$text-100;
+    color: v.$text-500;
+    border-left: .5em solid v.$text-400;
+  }
+}
+
+
+@keyframes showNotification {
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+
+@keyframes hideNotification {
+  to {
+    opacity: 0;
+    transform: translateX(100%);
+  }
+}

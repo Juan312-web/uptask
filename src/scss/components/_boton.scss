@@ -1,0 +1,26 @@
+@use 'base/variables' as v;
+@use 'base/mixins' as m;
+
+.boton {
+  @include m.boton(v.$text-100, v.$text-500, v.$text-600);
+
+  &.active {
+    @include m.boton(v.$text-100, v.$text-700, v.$text-600);
+  }
+
+  &.disable {
+    @include m.boton(v.$text-400, v.$text-100);
+
+    &:hover {
+      cursor: not-allowed;
+    }
+  }
+
+  &.xl {
+    font-size: 2em;
+  }
+
+  &.inline {
+    display: inline-block;
+  }
+}

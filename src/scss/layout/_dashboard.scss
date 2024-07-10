@@ -1,0 +1,242 @@
+@use 'base/mixins' as m;
+@use 'base/variables' as v;
+
+
+.dashboard {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 8em auto;
+  min-height: 100%;
+  position: relative;
+
+
+  .enlace {
+    padding: 1em 4em;
+    text-transform: uppercase;
+    font-weight: v.$bold;
+
+    &:hover {
+      cursor: pointer;
+      background-color: v.$text-700;
+      border-left: .5em solid v.$text-300;
+      border-radius: 1em;
+    }
+
+    &.activo {
+      background-color: v.$blanco;
+      color: v.$text-600;
+      border-radius: 1em;
+    }
+  }
+
+
+  p,
+  h1,
+  h2,
+  h3 {
+    color: v.$text-500;
+  }
+
+
+  .contenedor-proyectos {
+    display: grid;
+
+    header {
+      display: none;
+    }
+  }
+
+
+  .contenido {
+    min-height: calc(100vh - 20em);
+    padding: 1rem 2rem;
+
+    &.inicial {
+      width: 100%;
+    }
+  }
+
+  header {
+    background-color: v.$blanco;
+    padding: 1.5rem 2rem;
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .main-dashboard {
+    box-shadow: inset 0px 20px 10px -8px rgba(0, 0, 0, .1);
+    background-color: #fff;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 2rem;
+  }
+
+  @include m.tablet {
+    grid-template-columns: 15em auto;
+    grid-template-rows: 1fr;
+
+    .contenedor-proyectos {
+      grid-template-rows: 6em auto;
+
+      header {
+        display: flex;
+      }
+    }
+
+    .contenido {
+      max-width: inherit;
+    }
+
+  }
+
+  @include m.desktop {
+    grid-template-columns: 20em auto;
+  }
+
+
+}
+
+.barra {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  padding: 2em;
+
+  h2,
+  a {
+    color: v.$blanco;
+  }
+
+  @include m.tablet {
+    flex-direction: column;
+    justify-content: flex-start;
+    height: 100vh;
+    padding: 2em 0;
+
+  }
+}
+
+
+.slide {
+  display: flex;
+  flex-direction: column;
+
+  .bar {
+    filter: invert(100%);
+    width: 3.5em;
+  }
+
+  .nav {
+    display: none;
+    gap: 1em;
+  }
+
+  &.active {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 65vw;
+    height: 100vh;
+    background-color: v.$text-600;
+    display: flex;
+    align-items: flex-end;
+    padding: 2em;
+    animation: show 1s forwards;
+
+    .nav {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      text-align: center;
+      margin-top: 4em;
+
+      .enlace {
+        font-size: 1.6rem;
+        padding: 1rem 0;
+
+      }
+
+    }
+  }
+
+  @include m.tablet {
+    width: 100%;
+
+    .bar {
+      display: none;
+    }
+
+    .nav {
+      display: flex;
+      flex-direction: column;
+      gap: .5em;
+      padding: 1em;
+    }
+
+    &.active {
+      position: inherit;
+    }
+  }
+}
+
+@keyframes show {
+  0% {
+    width: 60vw;
+  }
+
+  100% {
+    width: 65vw;
+  }
+}
+
+.proyectos {
+  display: grid;
+  grid-template-columns: repeat(auto-fit,
+      minmax(200px, 1fr));
+  gap: 1.6em;
+  padding: 0 2em;
+  max-height: 70vh;
+  overflow-y: auto;
+
+  .proyecto {
+    min-height: 10em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 1em 2em;
+    transition: filter .3s ease;
+    filter: brightness(100%);
+
+    h3 {
+      color: v.$blanco;
+      filter: brightness(100%);
+
+    }
+
+    background: radial-gradient(at 10.945907584141779% 90.51953300416784%, hsla(321.0878661087866, 97.55102040816327%, 48.0392156862745%, 1) 0%, hsla(321.0878661087866, 97.55102040816327%, 48.0392156862745%, 0) 100%),
+    radial-gradient(at 65.88701274259623% 11.106780562389474%, hsla(230.96234309623432, 97.55102040816327%, 48.0392156862745%, 1) 0%, hsla(230.96234309623432, 97.55102040816327%, 48.0392156862745%, 0) 100%),
+    radial-gradient(at 28.709603843524146% 55.99612551660385%, hsla(321.0878661087866, 97.55102040816327%, 48.0392156862745%, 1) 0%, hsla(321.0878661087866, 97.55102040816327%, 48.0392156862745%, 0) 100%),
+    radial-gradient(at 99.7519368640428% 53.4780517062232%, hsla(230.96234309623432, 97.55102040816327%, 48.0392156862745%, 1) 0%, hsla(230.96234309623432, 97.55102040816327%, 48.0392156862745%, 0) 100%),
+    radial-gradient(at 52.12881136784482% 12.418780358437198%, hsla(321.0878661087866, 97.55102040816327%, 48.0392156862745%, 1) 0%, hsla(321.0878661087866, 97.55102040816327%, 48.0392156862745%, 0) 100%),
+    radial-gradient(at 87.45088444604845% 30.581489903061776%, hsla(230.96234309623432, 97.55102040816327%, 48.0392156862745%, 1) 0%, hsla(230.96234309623432, 97.55102040816327%, 48.0392156862745%, 0) 100%),
+    radial-gradient(at 70.89264398669586% 91.88565802176876%, hsla(321.0878661087866, 97.55102040816327%, 48.0392156862745%, 1) 0%, hsla(321.0878661087866, 97.55102040816327%, 48.0392156862745%, 0) 100%);
+
+
+    &:hover {
+      filter: brightness(80%);
+    }
+  }
+
+  @include m.desktop {
+    h3 {
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+  }
+
+}

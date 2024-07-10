@@ -1,0 +1,22 @@
+@use 'base/variables' as v;
+@use 'base/mixins' as m;
+
+.acciones {
+  display: flex;
+  justify-content: space-between;
+
+  a {
+    color: v.$text-100;
+
+    &:hover {
+      color: v.$text-300;
+    }
+  }
+}
+
+.confirm {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+}

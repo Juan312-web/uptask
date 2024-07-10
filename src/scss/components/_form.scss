@@ -1,0 +1,64 @@
+@use 'base/variables' as v;
+@use 'base/mixins' as m;
+
+
+.form {
+  width: 100%;
+
+  &.centrado {
+    display: flex;
+    flex-direction: column;
+    gap: .5rem;
+  }
+}
+
+.input {
+  padding: .7em 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  label {
+    min-width: 10rem;
+    font-size: 1.2em;
+    font-weight: v.$bold;
+    color: v.$text-50;
+  }
+
+  input {
+    background-color: v.$text-200;
+    padding: 1rem 2rem;
+    width: 100%;
+    border: none;
+
+    &::placeholder {
+      color: v.$text-400;
+      font-size: 1.25em;
+    }
+  }
+
+
+
+  &.dark {
+    label {
+      color: v.$text-700;
+    }
+
+    input {
+      background-color: v.$text-100;
+      color: v.$text-700;
+      font-size: 1.4em;
+
+
+      &:focus {
+        outline: .2rem solid v.$text-300;
+      }
+    }
+  }
+
+  @include m.tablet {
+    label {
+      font-size: 1.25em;
+    }
+  }
+}

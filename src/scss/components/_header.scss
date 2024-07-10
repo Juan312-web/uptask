@@ -1,0 +1,10 @@
+@use 'base/variables' as v;
+
+.header {
+  padding: 2em;
+  max-width: 90%;
+
+  a {
+    color: v.$text-100;
+  }
+}
