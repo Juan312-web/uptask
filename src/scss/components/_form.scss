@@ -62,3 +62,35 @@
     }
   }
 }
+
+
+.form {
+  &.radio {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 2rem;
+
+    .input-radio {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      width: 100%;
+      gap: 1em;
+
+      label {
+        font-size: 1.4em;
+        font-weight: v.$bold;
+      }
+
+      input[type="radio"] {
+        height: 2em;
+        width: 2em;
+      }
+    }
+
+    @include m.tablet {
+      flex-direction: row;
+    }
+  }
+}

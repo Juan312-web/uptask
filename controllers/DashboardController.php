@@ -71,7 +71,7 @@ class DashboardController
     // ? Asignar Nombre de Proyecto
     $nombre = $proyecto->project;
 
-    $router->render('dashboard/project', ["titulo" => $nombre]); //  "alertas" => $alertas
+    $router->render('dashboard/project', ["titulo" => $nombre, "projectId" => $proyecto->id]); //  "alertas" => $alertas
   }
 
   public static function profile(Router $router)

@@ -5,6 +5,7 @@ require_once __DIR__ . '/../includes/app.php';
 use Controllers\DashboardController;
 use Controllers\InitController;
 use Controllers\LoginController;
+use Controllers\TaskController;
 use MVC\Router;
 
 $router = new Router();
@@ -54,7 +55,7 @@ $router->get('/create-project', [DashboardController::class, 'createProject']);
 $router->post('/create-project', [DashboardController::class, 'createProject']);
 
 $router->get('/project', [DashboardController::class, 'project']);
-
+$router->post('/create-task', [TaskController::class, 'index']);
 
 
 // ? ----------------------------------------------------------------------------------------

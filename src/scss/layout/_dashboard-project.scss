@@ -1,0 +1,92 @@
+@use 'base/variables' as v;
+@use 'base/mixins' as m;
+
+.dashboard {
+
+  .filter {
+    display: grid;
+    grid-template-columns: 1fr;
+    padding: 2em 3em;
+    border-radius: 1rem;
+    background-color: v.$text-100;
+    width: 100%;
+
+    @include m.tablet {
+      width: initial;
+    }
+
+    @include m.desktop {
+      grid-template-columns: 1fr 2fr;
+    }
+  }
+
+
+  .task {
+    .form-task {
+      position: absolute;
+      top: 0;
+      left: 0;
+      height: 100vh;
+      width: 100vw;
+      display: none;
+      justify-content: center;
+      align-items: center;
+      background-color: rgba(0, 0, 0, 0.5);
+      transition: all 10s ease;
+      z-index: 1;
+
+      .form {
+        padding: 2em 5em;
+        margin: 0 2em;
+        text-align: center;
+        background-color: v.$text-50;
+        max-width: 43.75em;
+
+        h2 {
+          color: v.$text-800;
+          margin-bottom: 1em;
+        }
+
+        .input {
+          flex-direction: column;
+          align-items: flex-start;
+
+          label {
+            color: v.$text-800;
+            min-width: inherit;
+          }
+
+          input {
+            background-color: v.$text-50;
+            border: .2rem solid v.$text-500 ;
+            border-radius: 1rem;
+            color: v.$text-700;
+            font-weight: v.$bold;
+            font-size: 1.4em;
+
+            &:focus {
+              outline: .1rem solid v.$text-500 ;
+            }
+          }
+        }
+
+        .task-actions {
+          display: flex;
+          flex-direction: column;
+          gap: .5rem;
+
+          @include m.tablet {
+            flex-direction: row;
+            justify-content: space-between;
+          }
+        }
+      }
+
+      &.showTaskCreate {
+        display: flex;
+
+      }
+
+    }
+  }
+}

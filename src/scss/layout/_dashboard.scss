@@ -29,14 +29,12 @@
     }
   }
 
-
   p,
   h1,
   h2,
   h3 {
     color: v.$text-500;
   }
-
 
   .contenedor-proyectos {
     display: grid;
@@ -46,10 +44,7 @@
     }
   }
 
-
   .contenido {
-    min-height: calc(100vh - 20em);
-    padding: 1rem 2rem;
 
     &.inicial {
       width: 100%;
@@ -64,13 +59,15 @@
   }
 
   .main-dashboard {
-    box-shadow: inset 0px 20px 10px -8px rgba(0, 0, 0, .1);
-    background-color: #fff;
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
+    justify-content: flex-start;
     gap: 2rem;
+    padding: 2em;
+    height: 100%;
+    box-shadow: inset 0px 20px 10px -8px rgba(0, 0, 0, .1);
+    background-color: #fff;
   }
 
   @include m.tablet {
@@ -78,7 +75,7 @@
     grid-template-rows: 1fr;
 
     .contenedor-proyectos {
-      grid-template-rows: 6em auto;
+      grid-template-rows: 6em 1fr;
 
       header {
         display: flex;
@@ -195,9 +192,8 @@
 .proyectos {
   display: grid;
   grid-template-columns: repeat(auto-fit,
-      minmax(200px, 1fr));
+      minmax(20em, 1fr));
   gap: 1.6em;
-  padding: 0 2em;
   max-height: 70vh;
   overflow-y: auto;
 
@@ -230,6 +226,10 @@
     }
   }
 
+  @include m.tablet {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
   @include m.desktop {
     h3 {
       white-space: nowrap;
@@ -237,6 +237,7 @@
       text-overflow: ellipsis;
     }
 
+    grid-template-columns: repeat(3, 1fr);
   }
 
 }

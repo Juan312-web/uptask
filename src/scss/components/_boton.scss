@@ -23,4 +23,8 @@
   &.inline {
     display: inline-block;
   }
+
+  &.danger {
+    background-color: v.$danger;
+  }
 }
