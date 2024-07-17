@@ -2,8 +2,8 @@
   <div id="crateTask" class="form">
     <h2>Nueva Tarea</h2>
     <div class="input">
-      <label for="task">Nombre: </label>
-      <input type="text" name="task" id="task">
+      <label for="task-input">Nombre: </label>
+      <input type="text" name="task" id="task-input">
       <input type="hidden" name="projectId" id="projectId" value="<?php echo $projectId ?>">
     </div>
     <div class="task-actions">

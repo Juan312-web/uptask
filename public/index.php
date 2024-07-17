@@ -55,7 +55,10 @@ $router->get('/create-project', [DashboardController::class, 'createProject']);
 $router->post('/create-project', [DashboardController::class, 'createProject']);
 
 $router->get('/project', [DashboardController::class, 'project']);
-$router->post('/create-task', [TaskController::class, 'index']);
+
+$router->get('/api/task', [TaskController::class, 'index']);
+$router->post('/api/task', [TaskController::class, 'createTask']);
+$router->post('/api/task/update', [TaskController::class, 'updateTask']);
 
 
 // ? ----------------------------------------------------------------------------------------

@@ -64,7 +64,7 @@
     align-items: center;
     justify-content: flex-start;
     gap: 2rem;
-    padding: 2em;
+    padding: 2.5rem;
     height: 100%;
     box-shadow: inset 0px 20px 10px -8px rgba(0, 0, 0, .1);
     background-color: #fff;
@@ -194,8 +194,6 @@
   grid-template-columns: repeat(auto-fit,
       minmax(20em, 1fr));
   gap: 1.6em;
-  max-height: 70vh;
-  overflow-y: auto;
 
   .proyecto {
     min-height: 10em;
@@ -209,7 +207,7 @@
     h3 {
       color: v.$blanco;
       filter: brightness(100%);
-
+      font-size: 1.5em;
     }
 
     background: radial-gradient(at 10.945907584141779% 90.51953300416784%, hsla(321.0878661087866, 97.55102040816327%, 48.0392156862745%, 1) 0%, hsla(321.0878661087866, 97.55102040816327%, 48.0392156862745%, 0) 100%),
@@ -227,7 +225,8 @@
   }
 
   @include m.tablet {
-    grid-template-columns: repeat(2, 1fr);
+    max-height: 70vh;
+    overflow-y: auto;
   }
 
   @include m.desktop {
@@ -237,7 +236,7 @@
       text-overflow: ellipsis;
     }
 
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(3, 1fr)
   }
 
 }

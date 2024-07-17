@@ -56,6 +56,7 @@ class DashboardController
   public static function project(Router $router)
   {
     session_start();
+    isAuth();
     $url = $_GET['id'];
 
     // ? Validar URL

@@ -69,7 +69,7 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
-    gap: 2rem;
+    gap: .5rem;
 
     .input-radio {
       display: flex;
@@ -91,6 +91,8 @@
 
     @include m.tablet {
       flex-direction: row;
+      gap: 2rem;
+
     }
   }
 }
