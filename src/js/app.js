@@ -147,6 +147,9 @@ async function viewTask() {
     const containerTask = document.getElementById('task');
 
     if (tareas.length === 0) {
+      const taskContainer = document.querySelector('.task-containter');
+      taskContainer.remove();
+
       const message = document.createElement('P');
       message.classList.add('no-task');
       message.textContent = 'No Hay Tareas Aún';
@@ -266,6 +269,7 @@ function confirmDeleteTask(id) {
     /* Read more about isConfirmed, isDenied below */
     if (result.isConfirmed) {
       deleteTarea(id);
+      viewTask();
     }
   });
 }
@@ -274,11 +278,7 @@ async function deleteTarea(id) {
   try {
     const url = `http://localhost:3000/api/task/delete?id=${id}`;
     const resultado = await fetch(url);
-    const respuesta = await resultado.text();
-
-    if (respuesta) {
-      viewTask();
-    }
+    const respuesta = await resultado.json();
   } catch (error) {
     console.log('Error: ', error);
   }
