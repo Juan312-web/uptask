@@ -5,13 +5,13 @@
   position: absolute;
   right: 0;
   top: 4em;
+  padding: 2em 0;
 
   @include m.tablet {
     bottom: 0;
     top: inherit;
   }
 
-  padding: 2em 0;
 }
 
 .alerta {

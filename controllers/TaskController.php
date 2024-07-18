@@ -40,4 +40,44 @@ class TaskController
 
     echo json_encode($respuesta);
   }
+
+  public static function findTask()
+  {
+    $id = $_GET['id'];
+    $task = Tareas::where('id', $id);
+    $taskState = $task->state;
+
+    $newState = ($taskState === "0") ? "1" : "0";
+    $task->state = $newState;
+    $task->guardar();
+
+    echo json_encode($task);
+  }
+
+  public static function deleteTask()
+  {
+    $id = $_GET['id'];
+
+    if ($id) {
+      $task = Tareas::find($id);
+      $respuesta = $task->eliminar();
+    }
+
+    echo json_encode($respuesta);
+  }
+
+  public static function updateTask()
+  {
+    $taskId = intval($_POST["id"]);
+    $taskName = $_POST["name"];
+
+    $task = Tareas::where('id', $taskId);
+
+    $task->id = $taskId;
+    $task->name = $taskName;
+
+    $res = $task->guardar();
+
+    echo json_encode($res);
+  }
 }

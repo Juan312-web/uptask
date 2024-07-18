@@ -58,7 +58,9 @@ $router->get('/project', [DashboardController::class, 'project']);
 
 $router->get('/api/task', [TaskController::class, 'index']);
 $router->post('/api/task', [TaskController::class, 'createTask']);
+$router->get('/api/task/find', [TaskController::class, 'findTask']);
 $router->post('/api/task/update', [TaskController::class, 'updateTask']);
+$router->get('/api/task/delete', [TaskController::class, 'deleteTask']);
 
 
 // ? ----------------------------------------------------------------------------------------

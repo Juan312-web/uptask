@@ -91,6 +91,10 @@
 
       }
 
+      &.edit {
+        display: flex;
+
+      }
     }
 
 
@@ -114,14 +118,24 @@
           .state {
             border: none;
             padding: .5em 3em;
-            background-color: v.$text-500;
             color: v.$text-100;
             border-radius: 1rem;
             font-weight: v.$bold;
 
 
             &:hover {
+              cursor: pointer;
               background-color: v.$text-400;
+            }
+
+            &.pending {
+              background-color: v.$text-200;
+              color: v.$text-800;
+
+            }
+
+            &.complete {
+              background-color: v.$text-800;
             }
 
             &.danger {
@@ -171,4 +185,9 @@
     text-align: center;
     hyphens: auto;
   }
+}
+
+.hidden-task {
+  position: absolute;
+  clip-path: inset(50%);
 }
